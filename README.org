@@ -7,6 +7,24 @@ gw can be used both to manage your gvm applications and to run them.
 
 ** Installation
 
+If gvm is not installed, gw will install it. During the installation,
+gvm will try to modify your following dotfiles: =.bash_profile=,
+=.profile=, =.bashrc= and =.zshrc=
+
+To avoid letting the gvm installer modify your dotfiles, they are
+moved away by gw before gvm installs to a temporal directory in your
+=$HOME=.
+
+The tepmoral directory name is printed to you right after the gw
+installation starts. It's route is something like =$HOME/tmp.HASH=.
+
+If something fails during the installation, please move back your
+dotfiles to their original locations running
+
+#+BEGIN_SRC shell-script
+  mv $HOME/tmp.HASH/.* $HOME
+#+END_SRC
+
 *** Automated
 
 Move to a directory in your PATH where you have write permissions and
