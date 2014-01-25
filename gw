@@ -1,0 +1,37 @@
+#!/bin/bash
+
+function gvm {
+    bash -c '. ~/.gvm/bin/gvm-init.sh; gvm "$@"' gvm $@
+}
+
+function addAppsPath {
+    for program in $gvmPrograms; do
+        export PATH=$PATH:~/.gvm/$program/current/bin
+    done
+}
+
+function execApp {
+    addAppsPath
+    command $@
+}
+
+function printUsage {
+    echo "USAGE"
+}
+
+function filterUse {
+    echo "Please, don't use USE"
+    printUsage
+}
+
+gvmPrograms='gaiden gradle grails griffon groovy groovyserv lazybones springboot vertx'
+
+if [ $# -eq 0 ]; then
+    printUsage
+elif [[ $1 == "use" ]]; then
+    filterUse
+elif [[ $gvmPrograms =~ (^| )$1($| ) ]]; then
+    execApp $@
+else
+    gvm $@
+fi

@@ -1,0 +1,11 @@
+# This file must be used with "source" from your terminal
+
+alias gaiden="gw gaiden"
+alias gradle="gw gradle"
+alias grails="gw grails"
+alias griffon="gw griffon"
+alias groovy="gw groovy"
+alias groovyserv="gw groovyserv"
+alias lazybones="gw lazybones"
+alias springboot="gw springboot"
+alias vertx="gw vertx"
