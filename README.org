@@ -5,7 +5,16 @@ variables. To avoid this but continue using gvm, I wrote *gw*.
 
 gw can be used both to manage your gvm applications and to run them.
 
-** Installation
+** Automated installation
+
+Move to a directory in your PATH where you have write permissions and
+run the following command
+
+#+BEGIN_SRC shell-script
+  curl -s https://raw.github.com/mgdelacroix/gw/master/install | bash
+#+END_SRC
+
+** Manual installation
 
 To install *gw*, you only need to download the [[gw][gw file]] and copy it
 to any directory included on your PATH.

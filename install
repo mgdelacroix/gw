@@ -1,8 +1,22 @@
 #!/bin/bash
 
 ROOT_URL='https://raw.github.com/mgdelacroix/gw/master/'
+FILES='gw gwactivate'
 
-echo 'Downloading => gw'
-curl -# -O "$ROOT_URL/gw"
-echo 'Downloading => gwactivate'
-curl -# -O "$ROOT_URL/gwactivate"
+function downloadFile {
+    echo "== Downloading => $1"
+    curl -# -O "$ROOT_URL/$1"
+    chmod +x ./$1
+}
+
+echo '
+==== Installing GW ====
+'
+
+for file in $FILES; do
+    downloadFile $file
+done
+
+echo '=======================
+'
+echo 'GW is now installed. To start using it, run "gw help".'
