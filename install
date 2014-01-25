@@ -1,0 +1,8 @@
+#!/bin/bash
+
+ROOT_URL='https://raw.github.com/mgdelacroix/gw/master/'
+
+echo 'Downloading => gw'
+curl -# -O "$ROOT_URL/gw"
+echo 'Downloading => gwactivate'
+curl -# -O "$ROOT_URL/gwactivate"
