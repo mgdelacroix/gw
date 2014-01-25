@@ -27,11 +27,11 @@ If you want to use the applications directly instead of using them
 through =gw <application>=, you can run the following command.
 
 #+BEGIN_SRC shell-script
-  source gwactivate
+  source <gw installation directory>/gwactivate
 #+END_SRC
 
 This command will create one alias per gvm application, so you can
-run them directly. After running this command you could execute
+run them directly. After running this command you could execute.
 
 #+BEGIN_SRC shell-script
   grails -version
@@ -42,6 +42,9 @@ instead of
 #+BEGIN_SRC shell-script
   gw grails -version
 #+END_SRC
+
+If you want gw to be *always active* for your user, just add =source
+<gw installation directory>/gwactivate= to your favourite =~/.*rc= or =~/.*profile=.
 
 ** Usage
 
