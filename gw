@@ -41,6 +41,8 @@ if [ $# -eq 0 ]; then
     printUsage
 elif [[ $1 == "use" ]]; then
     filterUse
+elif [[ $1 == "help" || $1 == "-help" || $1 == "--help" ]]; then
+    printUsage
 elif [[ $gvmPrograms =~ (^| )$1($| ) ]]; then
     execApp $@
 else
