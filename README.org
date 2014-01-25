@@ -1,0 +1,47 @@
+* GW - A gvm wrapper
+
+[[http://gvmtool.net][gvm]] is an awesome tool, but it makes a mess of your environment
+variables. To avoid this but continue using gvm, I wrote *gw*.
+
+gw can be used both to manage your gvm applications and to run them.
+
+** Installation
+
+To install *gw*, you only need to download the [[gw][gw file]] and copy it
+to any directory included on your PATH.
+
+** Activation
+
+If you want to use the applications directly instead of using them
+through =gw <application>=, you can run the following command.
+
+#+BEGIN_SRC shell-script
+  source gwactivate
+#+END_SRC
+
+This command will create one alias per gvm application, so you can
+run them directly. After running this command you could execute
+
+#+BEGIN_SRC shell-script
+  grails -version
+#+END_SRC
+
+instead of
+
+#+BEGIN_SRC shell-script
+  gw grails -version
+#+END_SRC
+
+** Usage
+
+#+BEGIN_SRC shell-script
+  Usage: gw <gvm command>
+         gw <application>
+  
+     gvm commands:
+        you can use a all gvm commands except 'use'. Instead, use 'default'
+  
+     applications:
+        you can use any of the following:
+        gaiden gradle grails griffon groovy groovyserv lazybones springboot vertx
+#+END_SRC
