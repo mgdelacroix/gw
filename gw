@@ -16,11 +16,22 @@ function execApp {
 }
 
 function printUsage {
-    echo "USAGE"
+    echo """
+Usage: gw <gvm command>
+       gw <application>
+
+   gvm commands:
+      you can use a all gvm commands except 'use'. Instead, use 'default'
+
+   applications:
+      you can use any of the following:
+      gaiden gradle grails griffon groovy groovyserv lazybones springboot vertx
+"""
 }
 
 function filterUse {
-    echo "Please, don't use USE"
+    echo """\
+WARNING: avoid the 'gvm use' command. Instead, use 'gvm default'"""
     printUsage
 }
 
