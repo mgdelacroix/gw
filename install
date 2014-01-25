@@ -2,12 +2,47 @@
 
 ROOT_URL='https://raw.github.com/mgdelacroix/gw/master/'
 FILES='gw gwactivate'
+GVM_DIR="$HOME/.gvm"
+RC_FILES='.bash_profile .profile .bashrc .zshrc'
 
 function downloadFile {
     echo "== Downloading => $1"
     curl -# -O "$ROOT_URL/$1"
     chmod +x ./$1
 }
+
+function checkGVM {
+    if [ ! -d $GVM_DIR ]; then
+        installGVM
+    fi
+}
+
+function backupRCs {
+    TEMP_DIR=`mktemp -dqp $HOME`
+    echo "++ Saving dotfiles to $TEMP_DIR avoid modifications during GVM installation"
+    for file in $RC_FILES; do
+        mv $HOME/$file $TEMP_DIR 2> /dev/null
+    done
+}
+
+function restoreRCs {
+    echo '++ Restoring dotfiles after GVM installation'
+    for file in $RC_FILES; do
+        mv $TEMP_DIR/$file $HOME 2> /dev/null
+    done
+    echo '++ Removing temp dir'
+    rmdir $TEMP_DIR
+}
+
+function installGVM {
+    echo '
+== Installing GVM'
+    backupRCs
+    curl -s get.gvmtool.net | bash
+    restoreRCs
+}
+
+checkGVM
 
 echo '
 ==== Installing GW ====
