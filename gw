@@ -35,7 +35,7 @@ WARNING: avoid the 'gvm use' command. Instead, use 'gvm default'"""
     printUsage
 }
 
-gvmPrograms='gaiden gradle grails griffon groovy groovyserv lazybones springboot vertx'
+gvmPrograms='gaiden gradle grails griffon groovy groovyserv lazybones springboot vertx grape groovyc groovyConsole groovydoc groovysh java2groovy startGroovy'
 
 if [ $# -eq 0 ]; then
     printUsage
